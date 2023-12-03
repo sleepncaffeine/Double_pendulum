@@ -4,7 +4,7 @@ made for oop class
 
 ## Simulation video
 
-<img src="https://github.com/sleepncaffeine/Double_Pendulum_GUI/assets/101965838/43a67df9-a390-4fbb-84a1-1be024134c7b" width=60% />
+https://github.com/sleepncaffeine/Double_pendulum/assets/101965838/10d04fd6-9e77-4c60-bf3b-4cdbe59eea5c
 
 ## Caution
 
