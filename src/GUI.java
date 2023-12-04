@@ -16,8 +16,8 @@ public class GUI extends JFrame implements ActionListener {
         this.setLayout(new BorderLayout());
         this.setTitle("Double Pendulum Simulation");
 
-        Simulation panel = new Simulation();
-        this.add(panel, BorderLayout.CENTER);
+        Simulation simulation = new Simulation();
+        this.add(simulation, BorderLayout.CENTER);
 
         // Creating a panel to hold all sliders
         JPanel controlPanel = new JPanel();
@@ -25,9 +25,9 @@ public class GUI extends JFrame implements ActionListener {
 
         // Slider for mass1
         JLabel mass1Label = new JLabel("Mass 1: 20", JLabel.CENTER);
-        JSlider mass1Slider = new JSlider(JSlider.HORIZONTAL, 10, 50, panel.getMass1());
+        JSlider mass1Slider = new JSlider(JSlider.HORIZONTAL, 10, 50, simulation.getMass1());
         mass1Slider.addChangeListener(e -> {
-            panel.setMass1(mass1Slider.getValue());
+            simulation.setMass1(mass1Slider.getValue());
             mass1Label.setText("Mass 1: " + mass1Slider.getValue());
         });
         controlPanel.add(mass1Label);
@@ -35,9 +35,9 @@ public class GUI extends JFrame implements ActionListener {
 
         // Slider for mass2
         JLabel mass2Label = new JLabel("Mass 2: 20", JLabel.CENTER);
-        JSlider mass2Slider = new JSlider(JSlider.HORIZONTAL, 10, 50, panel.getMass2());
+        JSlider mass2Slider = new JSlider(JSlider.HORIZONTAL, 10, 50, simulation.getMass2());
         mass2Slider.addChangeListener(e -> {
-            panel.setMass2(mass2Slider.getValue());
+            simulation.setMass2(mass2Slider.getValue());
             mass2Label.setText("Mass 2: " + mass2Slider.getValue());
         });
         controlPanel.add(mass2Label);
@@ -45,9 +45,9 @@ public class GUI extends JFrame implements ActionListener {
 
         // Slider for radius1
         JLabel radius1Label = new JLabel("Radius 1: 50", JLabel.CENTER);
-        JSlider radius1Slider = new JSlider(JSlider.HORIZONTAL, 30, 150, panel.getRadius1());
+        JSlider radius1Slider = new JSlider(JSlider.HORIZONTAL, 30, 150, simulation.getRadius1());
         radius1Slider.addChangeListener(e -> {
-            panel.setRadius1(radius1Slider.getValue());
+            simulation.setRadius1(radius1Slider.getValue());
             radius1Label.setText("Radius 1: " + radius1Slider.getValue());
         });
         controlPanel.add(radius1Label);
@@ -55,9 +55,9 @@ public class GUI extends JFrame implements ActionListener {
 
         // Slider for radius2
         JLabel radius2Label = new JLabel("Radius 2: 100", JLabel.CENTER);
-        JSlider radius2Slider = new JSlider(JSlider.HORIZONTAL, 30, 150, panel.getRadius2());
+        JSlider radius2Slider = new JSlider(JSlider.HORIZONTAL, 30, 150, simulation.getRadius2());
         radius2Slider.addChangeListener(e -> {
-            panel.setRadius2(radius2Slider.getValue());
+            simulation.setRadius2(radius2Slider.getValue());
             radius2Label.setText("Radius 2: " + radius2Slider.getValue());
         });
         controlPanel.add(radius2Label);
@@ -66,13 +66,13 @@ public class GUI extends JFrame implements ActionListener {
         // Checkbox for dampening
         JCheckBox dampenCheckbox = new JCheckBox("Dampen", false);
         dampenCheckbox.setHorizontalAlignment(JLabel.CENTER);
-        dampenCheckbox.addItemListener(e -> panel.setDampen(dampenCheckbox.isSelected()));
+        dampenCheckbox.addItemListener(e -> simulation.setDampen(dampenCheckbox.isSelected()));
         controlPanel.add(dampenCheckbox);
 
         // Checkbox for toggling the trajectory
         JCheckBox trajectoryCheckbox = new JCheckBox("Show Trajectory", true);
         trajectoryCheckbox.setHorizontalAlignment(JLabel.CENTER);
-        trajectoryCheckbox.addItemListener(e -> panel.toggleTrajectory(trajectoryCheckbox.isSelected()));
+        trajectoryCheckbox.addItemListener(e -> simulation.toggleTrajectory(trajectoryCheckbox.isSelected()));
         controlPanel.add(trajectoryCheckbox);
 
         // Blank label for spacing
@@ -80,7 +80,7 @@ public class GUI extends JFrame implements ActionListener {
 
         // Button for resetting the simulation
         JButton resetButton = new JButton("Reset Simulation");
-        resetButton.addActionListener(e -> panel.resetSimulation());
+        resetButton.addActionListener(e -> simulation.resetSimulation());
         controlPanel.add(resetButton);
 
         // Adding the control panel to the bottom of the frame
